@@ -14,6 +14,7 @@
 		B0D4ECB42A703EDD001C79D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D4ECB32A703EDD001C79D4 /* Preview Assets.xcassets */; };
 		B0D4ECBB2A7041F8001C79D4 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECBA2A7041F8001C79D4 /* BluetoothManager.swift */; };
 		B0D4ECBD2A704217001C79D4 /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */; };
+		B0D4ECBF2A7042D6001C79D4 /* VideoStreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B0D4ECB32A703EDD001C79D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0D4ECBA2A7041F8001C79D4 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
+		B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamingView.swift; sourceTree = "<group>"; };
 		BD6161C3DE896B022373DCE8 /* Pods_FridgeVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				B0D4ECAC2A703EDA001C79D4 /* FridgeVisionApp.swift */,
 				B0D4ECBA2A7041F8001C79D4 /* BluetoothManager.swift */,
 				B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */,
+				B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */,
 				B0D4ECAE2A703EDA001C79D4 /* ContentView.swift */,
 				B0D4ECB02A703EDD001C79D4 /* Assets.xcassets */,
 				B0D4ECB22A703EDD001C79D4 /* Preview Content */,
@@ -215,6 +218,7 @@
 				B0D4ECBB2A7041F8001C79D4 /* BluetoothManager.swift in Sources */,
 				B0D4ECAD2A703EDA001C79D4 /* FridgeVisionApp.swift in Sources */,
 				B0D4ECBD2A704217001C79D4 /* DeviceDetailView.swift in Sources */,
+				B0D4ECBF2A7042D6001C79D4 /* VideoStreamingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

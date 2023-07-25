@@ -45,6 +45,16 @@ struct ContentView: View {
                             }
                         }
 
+                        NavigationLink(destination: VideoStreamingView()) {
+                            Text("Live Stream")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .padding()
+                                .shadow(radius: 4)
+                        }
+
                         Button(action: {
                             if isScanning {
                                 bluetoothManager.stopScanning()
