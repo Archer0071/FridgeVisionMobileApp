@@ -1,8 +1,8 @@
 //
 //  DeviceDetailView.swift
-//  CLIP
+//  FridgeVision
 //
-//  Created by Melanie Herbert on 6/20/23.
+//  Created by Melanie Herbert on 7/25/23.
 //
 
 import SwiftUI
@@ -56,3 +56,4 @@ struct DeviceDetailView: View {
         }
     }
 }
+

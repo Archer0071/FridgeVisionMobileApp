@@ -1,9 +1,10 @@
 //
 //  BluetoothManager.swift
-//  CLIP
+//  FridgeVision
 //
-//  Created by Melanie Herbert on 6/16/23.
+//  Created by Melanie Herbert on 7/25/23.
 //
+
 import Foundation
 import CoreBluetooth
 

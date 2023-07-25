@@ -1,4 +1,7 @@
-target ‘CLIP’ do
-    use_frameworks!
-    pod 'iOSDFULibrary'
+platform :ios, '16.4'
+
+target 'FridgeVision' do
+  use_frameworks!
+  pod 'ZIPFoundation'
 end
+
