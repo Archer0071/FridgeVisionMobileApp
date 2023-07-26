@@ -15,6 +15,10 @@
 		B0D4ECBB2A7041F8001C79D4 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECBA2A7041F8001C79D4 /* BluetoothManager.swift */; };
 		B0D4ECBD2A704217001C79D4 /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */; };
 		B0D4ECBF2A7042D6001C79D4 /* VideoStreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */; };
+		B0D4ECC22A70A4D3001C79D4 /* Bluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC12A70A4D3001C79D4 /* Bluetooth */; };
+		B0D4ECC42A70A4D3001C79D4 /* BluetoothGAP in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC32A70A4D3001C79D4 /* BluetoothGAP */; };
+		B0D4ECC62A70A4D3001C79D4 /* BluetoothGATT in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC52A70A4D3001C79D4 /* BluetoothGATT */; };
+		B0D4ECC82A70A4D3001C79D4 /* BluetoothHCI in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC72A70A4D3001C79D4 /* BluetoothHCI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9994317B412FC9D21125DC48 /* Pods_FridgeVision.framework in Frameworks */,
+				B0D4ECC42A70A4D3001C79D4 /* BluetoothGAP in Frameworks */,
+				B0D4ECC82A70A4D3001C79D4 /* BluetoothHCI in Frameworks */,
+				B0D4ECC22A70A4D3001C79D4 /* Bluetooth in Frameworks */,
+				B0D4ECC62A70A4D3001C79D4 /* BluetoothGATT in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +126,12 @@
 			dependencies = (
 			);
 			name = FridgeVision;
+			packageProductDependencies = (
+				B0D4ECC12A70A4D3001C79D4 /* Bluetooth */,
+				B0D4ECC32A70A4D3001C79D4 /* BluetoothGAP */,
+				B0D4ECC52A70A4D3001C79D4 /* BluetoothGATT */,
+				B0D4ECC72A70A4D3001C79D4 /* BluetoothHCI */,
+			);
 			productName = FridgeVision;
 			productReference = B0D4ECA92A703EDA001C79D4 /* FridgeVision.app */;
 			productType = "com.apple.product-type.application";
@@ -146,6 +160,9 @@
 				Base,
 			);
 			mainGroup = B0D4ECA02A703EDA001C79D4;
+			packageReferences = (
+				B0D4ECC02A70A4D3001C79D4 /* XCRemoteSwiftPackageReference "Bluetooth" */,
+			);
 			productRefGroup = B0D4ECAA2A703EDA001C79D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -421,6 +438,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0D4ECC02A70A4D3001C79D4 /* XCRemoteSwiftPackageReference "Bluetooth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PureSwift/Bluetooth.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0D4ECC12A70A4D3001C79D4 /* Bluetooth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0D4ECC02A70A4D3001C79D4 /* XCRemoteSwiftPackageReference "Bluetooth" */;
+			productName = Bluetooth;
+		};
+		B0D4ECC32A70A4D3001C79D4 /* BluetoothGAP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0D4ECC02A70A4D3001C79D4 /* XCRemoteSwiftPackageReference "Bluetooth" */;
+			productName = BluetoothGAP;
+		};
+		B0D4ECC52A70A4D3001C79D4 /* BluetoothGATT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0D4ECC02A70A4D3001C79D4 /* XCRemoteSwiftPackageReference "Bluetooth" */;
+			productName = BluetoothGATT;
+		};
+		B0D4ECC72A70A4D3001C79D4 /* BluetoothHCI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0D4ECC02A70A4D3001C79D4 /* XCRemoteSwiftPackageReference "Bluetooth" */;
+			productName = BluetoothHCI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B0D4ECA12A703EDA001C79D4 /* Project object */;
 }

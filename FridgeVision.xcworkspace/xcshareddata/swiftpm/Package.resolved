@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "bluetooth",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PureSwift/Bluetooth.git",
+      "state" : {
+        "revision" : "9b0a2d0fba678831f9b87cde805d686177e4551d",
+        "version" : "6.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}

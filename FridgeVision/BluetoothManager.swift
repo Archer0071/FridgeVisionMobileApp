@@ -43,11 +43,18 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, ObservableObject {
     }
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-        if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
-            // Check for any manufacturer data
-            discoveredDevices.append(peripheral)
-        }
+        
+        // Filter out devices not named "raspberrypi".
+        guard let deviceName = peripheral.name, deviceName.lowercased() == "raspberrypi" else { return }
+        
+        // Change RSSI value.
+        let rssiDecreased = RSSI.intValue - 10
+        
+        print("Device \(deviceName) discovered. RSSI: \(rssiDecreased)")
+
+        discoveredDevices.append(peripheral)
     }
+
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         connectedPeripheral = peripheral
