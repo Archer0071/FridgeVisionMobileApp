@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct CookbookView: View {
+    let selectedMeals: [String]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Your selected meals:")
+            
+            List(selectedMeals, id: \.self) { meal in
+                Text(meal)
+            }
+        }
     }
 }
 
 struct CookbookView_Previews: PreviewProvider {
     static var previews: some View {
-        CookbookView()
+        CookbookView(selectedMeals: ["Meal 1", "Meal 2", "Meal 3"])
     }
 }

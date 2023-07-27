@@ -17,7 +17,17 @@ struct GroceryListView: View {
             List(selectedMeals, id: \.self) { meal in
                 Text(meal)
             }
+            
+            NavigationLink(destination: CookbookView(selectedMeals: selectedMeals)) {
+                Text("Go to Cookbook")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding()
         }
+        .navigationTitle("Grocery List")
     }
 }
 
