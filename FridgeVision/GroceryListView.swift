@@ -8,14 +8,31 @@
 import SwiftUI
 
 struct GroceryListView: View {
-    let selectedMeals: [String]
+    @State var selectedMeals: [String]
+    @State var checkedMeals: [String] = []
     
     var body: some View {
         VStack {
             Text("Your selected meals:")
             
-            List(selectedMeals, id: \.self) { meal in
-                Text(meal)
+            List {
+                ForEach(selectedMeals, id: \.self) { meal in
+                    HStack {
+                        Text(meal)
+                        Spacer()
+                        Image(systemName: checkedMeals.contains(meal) ? "checkmark.square" : "square")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .onTapGesture {
+                                if let index = checkedMeals.firstIndex(of: meal) {
+                                    checkedMeals.remove(at: index)
+                                } else {
+                                    checkedMeals.append(meal)
+                                }
+                            }
+                    }
+                }
+                .onDelete(perform: removeMeals)
             }
             
             NavigationLink(destination: CookbookView(selectedMeals: selectedMeals)) {
@@ -28,6 +45,10 @@ struct GroceryListView: View {
             .padding()
         }
         .navigationTitle("Grocery List")
+    }
+    
+    func removeMeals(at offsets: IndexSet) {
+        selectedMeals.remove(atOffsets: offsets)
     }
 }
 
