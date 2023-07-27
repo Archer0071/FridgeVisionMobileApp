@@ -42,78 +42,77 @@ struct BluetoothView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                Color(UIColor.systemMint)
-                    .frame(height: 120)
-                    .edgesIgnoringSafeArea(.top)
-
+            VStack {
                 GeometryReader { geometry in
                     VStack {
-                                                if bluetoothManager.discoveredDevices.isEmpty {
-                                                    Spacer()
+                        if bluetoothManager.discoveredDevices.isEmpty {
+                            Spacer()
+                            
+                            Text("No devices found")
+                                .frame(maxWidth: .infinity)
+                                .font(.headline)
+                                .padding()
+                                .background(Color.white)
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                                .padding()
+                                .shadow(radius: 4)
+                            
+                            Spacer()
+                        
+                        } else {
+                            List(Array(bluetoothManager.discoveredDevices.enumerated()), id: \.element.identifier) { (index, device) in
+                            NavigationLink(destination: DeviceDetailView(device: device)
+                                .environmentObject(bluetoothManager)
+                                ) {
+                                Text(device.name ?? "Unknown Device")
+                                }
+                            }
+                        }
+                        
+                        Spacer() // Add a spacer above the button
 
-                                                    Text("No devices found")
-                                                        .frame(maxWidth: .infinity)
-                                                        .font(.headline)
-                                                        .padding()
-                                                        .background(Color.white)
-                                                        .foregroundColor(.black)
-                                                        .cornerRadius(10)
-                                                        .padding()
-                                                        .shadow(radius: 4)
-
-                                                    Spacer()
-                                                } else {
-                                                    List(Array(bluetoothManager.discoveredDevices.enumerated()), id: \.element.identifier) { (index, device) in
-                                                        NavigationLink(destination: DeviceDetailView(device: device)
-                                                            .environmentObject(bluetoothManager)
-                                                        ) {
-                                                            Text(device.name ?? "Unknown Device")
-                                                        }
-                                                    }
-                                                }
-
-                                                NavigationLink(destination: VideoStreamingView()) {
-                                                    Text("Live Stream")
-                                                        .padding()
-                                                        .background(Color.blue)
-                                                        .foregroundColor(.white)
-                                                        .cornerRadius(10)
-                                                        .padding()
-                                                        .shadow(radius: 4)
-                                                }
+                        NavigationLink(destination: VideoStreamingView()) {
+                            Text("Live Stream")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .padding()
+                                .shadow(radius: 4)
+                        }
                                                 
-                                                Button(action: {
-                                                    if isScanning {
-                                                        bluetoothManager.stopScanning()
-                                                    } else {
-                                                        bluetoothManager.startScanning()
-                                                    }
-                                                    isScanning.toggle()
-                                                }) {
-                                                    Text(isScanning ? "Stop Scanning" : "Scan for Devices")
-                                                        .padding()
-                                                        .background(Color.blue)
-                                                        .foregroundColor(.white)
-                                                        .cornerRadius(10)
-                                                        .shadow(radius: 4)
-                                                }
-                                                .padding(.bottom, 100)
-                                            }
-                                            .padding()
-                                        }
-                                    }
-                                    .background(Color.white)
-                                    .edgesIgnoringSafeArea(.bottom)
-                                    .navigationTitle("")
-                                    .onAppear {
-                                        bluetoothManager.startScanning()
-                    
+                        Button(action: {
+                            if isScanning {
+                                bluetoothManager.stopScanning()
+                            } else {
+                                bluetoothManager.startScanning()
+                            }
+                            isScanning.toggle()
+                        }) {
+                            Text(isScanning ? "Stop Scanning" : "Scan for Devices")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .shadow(radius: 4)
+                        }
+                        .padding(.bottom, 100)
+
+                        Spacer() // Add a spacer below the button
+                    }
+                    .padding()
+                }
+            }
+            .background(Color.white)
+            .edgesIgnoringSafeArea(.bottom)
+            .navigationTitle("Bluetooth")
+            .onAppear {
+                bluetoothManager.startScanning()
             }
         }
     }
 }
-
 
 struct InventoryView: View {
     @State private var inventory: [(item: String, quantity: Int)] = []

@@ -23,6 +23,7 @@
 		B0D4ECD62A72D13D001C79D4 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECD52A72D13D001C79D4 /* MealView.swift */; };
 		B0D4ECD82A72ED06001C79D4 /* GroceryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECD72A72ED06001C79D4 /* GroceryListView.swift */; };
 		B0D4ECDA2A72F4F5001C79D4 /* CookbookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECD92A72F4F5001C79D4 /* CookbookView.swift */; };
+		B0D4ECDC2A72FED5001C79D4 /* LaunchScreenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D4ECDB2A72FED5001C79D4 /* LaunchScreenView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B0D4ECD52A72D13D001C79D4 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		B0D4ECD72A72ED06001C79D4 /* GroceryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListView.swift; sourceTree = "<group>"; };
 		B0D4ECD92A72F4F5001C79D4 /* CookbookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookbookView.swift; sourceTree = "<group>"; };
+		B0D4ECDB2A72FED5001C79D4 /* LaunchScreenView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenView.storyboard; sourceTree = "<group>"; };
 		BD6161C3DE896B022373DCE8 /* Pods_FridgeVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				B0D4ECD72A72ED06001C79D4 /* GroceryListView.swift */,
 				B0D4ECD92A72F4F5001C79D4 /* CookbookView.swift */,
 				B0D4ECAE2A703EDA001C79D4 /* ContentView.swift */,
+				B0D4ECDB2A72FED5001C79D4 /* LaunchScreenView.storyboard */,
 				B0D4ECD52A72D13D001C79D4 /* MealView.swift */,
 				B0D4ECD32A72CA06001C79D4 /* PreferencesView.swift */,
 				B0D4ECB02A703EDD001C79D4 /* Assets.xcassets */,
@@ -189,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D4ECDC2A72FED5001C79D4 /* LaunchScreenView.storyboard in Resources */,
 				B0D4ECB42A703EDD001C79D4 /* Preview Assets.xcassets in Resources */,
 				B0D4ECB12A703EDD001C79D4 /* Assets.xcassets in Resources */,
 			);
