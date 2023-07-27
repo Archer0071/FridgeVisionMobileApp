@@ -19,6 +19,7 @@
 		B0D4ECC42A70A4D3001C79D4 /* BluetoothGAP in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC32A70A4D3001C79D4 /* BluetoothGAP */; };
 		B0D4ECC62A70A4D3001C79D4 /* BluetoothGATT in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC52A70A4D3001C79D4 /* BluetoothGATT */; };
 		B0D4ECC82A70A4D3001C79D4 /* BluetoothHCI in Frameworks */ = {isa = PBXBuildFile; productRef = B0D4ECC72A70A4D3001C79D4 /* BluetoothHCI */; };
+		B0D4ECD42A72CA06001C79D4 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECD32A72CA06001C79D4 /* PreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B0D4ECBA2A7041F8001C79D4 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
 		B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamingView.swift; sourceTree = "<group>"; };
+		B0D4ECD32A72CA06001C79D4 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		BD6161C3DE896B022373DCE8 /* Pods_FridgeVision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeVision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */,
 				B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */,
 				B0D4ECAE2A703EDA001C79D4 /* ContentView.swift */,
+				B0D4ECD32A72CA06001C79D4 /* PreferencesView.swift */,
 				B0D4ECB02A703EDD001C79D4 /* Assets.xcassets */,
 				B0D4ECB22A703EDD001C79D4 /* Preview Content */,
 			);
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D4ECAF2A703EDA001C79D4 /* ContentView.swift in Sources */,
+				B0D4ECD42A72CA06001C79D4 /* PreferencesView.swift in Sources */,
 				B0D4ECBB2A7041F8001C79D4 /* BluetoothManager.swift in Sources */,
 				B0D4ECAD2A703EDA001C79D4 /* FridgeVisionApp.swift in Sources */,
 				B0D4ECBD2A704217001C79D4 /* DeviceDetailView.swift in Sources */,
