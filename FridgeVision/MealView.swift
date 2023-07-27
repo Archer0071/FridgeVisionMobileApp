@@ -14,39 +14,39 @@ struct MealView: View {
     @State private var selectedMeals: [String] = []
     
     var body: some View {
-        VStack {
-            Text("Select Your Meals")
-                .font(.largeTitle)
-                .padding()
-            
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                    ForEach(meals, id: \.self) { meal in
-                        MealCardView(meal: meal, isSelected: selectedMeals.contains(meal)) {
-                            if let index = selectedMeals.firstIndex(of: meal) {
-                                selectedMeals.remove(at: index)
-                            } else {
-                                selectedMeals.append(meal)
+        NavigationView {
+            VStack {
+                Text("Select Your Meals")
+                    .font(.largeTitle)
+                    .padding()
+                
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                        ForEach(meals, id: \.self) { meal in
+                            MealCardView(meal: meal, isSelected: selectedMeals.contains(meal)) {
+                                if let index = selectedMeals.firstIndex(of: meal) {
+                                    selectedMeals.remove(at: index)
+                                } else {
+                                    selectedMeals.append(meal)
+                                }
                             }
                         }
                     }
+                    .padding()
                 }
-                .padding()
-            }
-            
-            Button(action: {
-                // Handle checkout action
-            }) {
-                HStack {
-                    Image(systemName: "cart")
-                        .font(.title)
-                    Text("Checkout (\(selectedMeals.count))")
+                
+                NavigationLink(destination: GroceryListView(selectedMeals: selectedMeals)) {
+                    HStack {
+                        Image(systemName: "cart")
+                            .font(.title)
+                        Text("Checkout (\(selectedMeals.count))")
+                    }
+                    .padding()
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding()
                 }
-                .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .padding()
             }
         }
     }
