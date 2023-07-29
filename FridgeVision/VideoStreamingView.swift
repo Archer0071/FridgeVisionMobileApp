@@ -6,29 +6,16 @@
 //
 
 import SwiftUI
-import AVKit
+import AVFoundation
 
 struct VideoStreamingView: View {
     var body: some View {
-        VideoPlayerController(url: URL(string: "http://raspberrypi_ip:8080/stream"))
-            .edgesIgnoringSafeArea(.all)
-    }
-}
-
-struct VideoPlayerController: UIViewControllerRepresentable {
-    let url: URL?
-
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let controller = AVPlayerViewController()
-
-        if let url = url {
-            controller.player = AVPlayer(url: url)
-            controller.player?.play()
+        VStack {
+            Spacer(minLength: 0) // Pushes the camera view towards the top
+            CameraView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // Adjusts the size of the camera view
+            Spacer(minLength: 0) // Pushes the camera view towards the bottom
         }
-
-        return controller
+        .navigationTitle("Live Stream")
     }
-
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {}
 }
-

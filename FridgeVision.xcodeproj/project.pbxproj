@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9994317B412FC9D21125DC48 /* Pods_FridgeVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6161C3DE896B022373DCE8 /* Pods_FridgeVision.framework */; };
+		B0C3C53C2A756F4B0081AF97 /* SeeFood.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B0C3C53B2A756F4B0081AF97 /* SeeFood.mlmodel */; };
+		B0C3C53E2A7572DE0081AF97 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C3C53D2A7572DE0081AF97 /* CameraView.swift */; };
 		B0D4ECAD2A703EDA001C79D4 /* FridgeVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECAC2A703EDA001C79D4 /* FridgeVisionApp.swift */; };
 		B0D4ECAF2A703EDA001C79D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4ECAE2A703EDA001C79D4 /* ContentView.swift */; };
 		B0D4ECB12A703EDD001C79D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D4ECB02A703EDD001C79D4 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		3611103215C9DEFF49B5657E /* Pods-FridgeVision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeVision.debug.xcconfig"; path = "Target Support Files/Pods-FridgeVision/Pods-FridgeVision.debug.xcconfig"; sourceTree = "<group>"; };
 		44ED042EAFFFF47C205760B6 /* Pods-FridgeVision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeVision.release.xcconfig"; path = "Target Support Files/Pods-FridgeVision/Pods-FridgeVision.release.xcconfig"; sourceTree = "<group>"; };
+		B0C3C53B2A756F4B0081AF97 /* SeeFood.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SeeFood.mlmodel; sourceTree = "<group>"; };
+		B0C3C53D2A7572DE0081AF97 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B0D4ECA92A703EDA001C79D4 /* FridgeVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4ECAC2A703EDA001C79D4 /* FridgeVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeVisionApp.swift; sourceTree = "<group>"; };
 		B0D4ECAE2A703EDA001C79D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,9 +94,11 @@
 		B0D4ECAB2A703EDA001C79D4 /* FridgeVision */ = {
 			isa = PBXGroup;
 			children = (
+				B0C3C53B2A756F4B0081AF97 /* SeeFood.mlmodel */,
 				B0D4ECAC2A703EDA001C79D4 /* FridgeVisionApp.swift */,
 				B0D4ECBA2A7041F8001C79D4 /* BluetoothManager.swift */,
 				B0D4ECBC2A704217001C79D4 /* DeviceDetailView.swift */,
+				B0C3C53D2A7572DE0081AF97 /* CameraView.swift */,
 				B0D4ECBE2A7042D6001C79D4 /* VideoStreamingView.swift */,
 				B0D4ECD72A72ED06001C79D4 /* GroceryListView.swift */,
 				B0D4ECD92A72F4F5001C79D4 /* CookbookView.swift */,
@@ -247,12 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C3C53C2A756F4B0081AF97 /* SeeFood.mlmodel in Sources */,
 				B0D4ECAF2A703EDA001C79D4 /* ContentView.swift in Sources */,
 				B0D4ECD42A72CA06001C79D4 /* PreferencesView.swift in Sources */,
 				B0D4ECD82A72ED06001C79D4 /* GroceryListView.swift in Sources */,
 				B0D4ECBB2A7041F8001C79D4 /* BluetoothManager.swift in Sources */,
 				B0D4ECD62A72D13D001C79D4 /* MealView.swift in Sources */,
 				B0D4ECDA2A72F4F5001C79D4 /* CookbookView.swift in Sources */,
+				B0C3C53E2A7572DE0081AF97 /* CameraView.swift in Sources */,
 				B0D4ECAD2A703EDA001C79D4 /* FridgeVisionApp.swift in Sources */,
 				B0D4ECBD2A704217001C79D4 /* DeviceDetailView.swift in Sources */,
 				B0D4ECBF2A7042D6001C79D4 /* VideoStreamingView.swift in Sources */,
@@ -388,6 +396,7 @@
 				DEVELOPMENT_TEAM = 4N2KZ87VF6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -418,6 +427,7 @@
 				DEVELOPMENT_TEAM = 4N2KZ87VF6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
