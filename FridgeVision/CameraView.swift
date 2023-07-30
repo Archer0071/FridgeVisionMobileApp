@@ -7,24 +7,37 @@
 
 import SwiftUI
 import AVFoundation
+import CoreML
+import Vision
 
 struct CameraView: UIViewRepresentable {
-    private var captureSession: AVCaptureSession
+    private var captureSession = AVCaptureSession()
 
     init() {
-        captureSession = AVCaptureSession()
+        // Set up the camera session configuration here
+    }
 
-        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    func makeUIView(context: Context) -> UIView {
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return UIView() }
         let deviceInput = try! AVCaptureDeviceInput(device: captureDevice)
 
         if captureSession.canAddInput(deviceInput) {
             captureSession.addInput(deviceInput)
         }
 
-        captureSession.startRunning()
-    }
+        // Video data output
+        let videoOutput = AVCaptureVideoDataOutput()
+        videoOutput.setSampleBufferDelegate(context.coordinator, queue: DispatchQueue(label: "videoQueue"))
+        if captureSession.canAddOutput(videoOutput) {
+            captureSession.addOutput(videoOutput)
+        }
 
-    func makeUIView(context: Context) -> UIView {
+        captureSession.startRunning()
+
         let view = UIView()
         view.backgroundColor = UIColor.black
 
@@ -42,6 +55,42 @@ struct CameraView: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: Context) {
         if let previewLayer = uiView.layer.sublayers?[0] as? AVCaptureVideoPreviewLayer {
             previewLayer.frame = uiView.bounds
+        }
+    }
+
+    class Coordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+        var parent: CameraView
+        let model: VNCoreMLModel
+        
+        init(_ parent: CameraView) {
+            self.parent = parent
+            self.model = try! VNCoreMLModel(for: SeeFood().model)
+            super.init()
+        }
+        
+        func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+            let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
+                if let error = err {
+                    print("Core ML error: \(error)")
+                    return
+                }
+                
+                guard let results = finishedReq.results as? [VNRecognizedObjectObservation] else { return }
+                if let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
+                    for observation in results {
+                        let boundingBox = observation.boundingBox
+                        let objectBounds = VNImageRectForNormalizedRect(boundingBox, CVPixelBufferGetWidth(pixelBuffer), CVPixelBufferGetHeight(pixelBuffer))
+                        
+                        DispatchQueue.main.async {
+                            // Handle drawing the bounding boxes and labels here
+                        }
+                    }
+                }
+            }
+            
+            if let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
+                try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+            }
         }
     }
 }

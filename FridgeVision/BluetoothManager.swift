@@ -21,7 +21,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, ObservableObject {
     }
 
     func startScanning() {
-        centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
+        centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
     }
 
     func stopScanning() {
@@ -44,8 +44,13 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, ObservableObject {
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
         
-        // Filter out devices not named "raspberrypi".
-        guard let deviceName = peripheral.name, deviceName.lowercased() == "raspberrypi" else { return }
+        // Filter out devices not named "arduino".
+        guard let deviceName = peripheral.name, deviceName.lowercased() == "arduino" else { return }
+        
+        // Check if the peripheral is already discovered.
+        if discoveredDevices.contains(where: { $0.identifier == peripheral.identifier }) {
+            return // Exit if the peripheral is already discovered
+        }
         
         // Change RSSI value.
         let rssiDecreased = RSSI.intValue - 10
@@ -54,6 +59,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, ObservableObject {
 
         discoveredDevices.append(peripheral)
     }
+
 
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
